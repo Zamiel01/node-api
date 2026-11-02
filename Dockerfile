@@ -1,6 +1,11 @@
 # ---- Test stage: runs the suite and fails the build on test failure ----
 FROM node:22-alpine AS test
 WORKDIR /app
+
+# The 192.168.56.101 default only exists on the physical host;
+# inside the container we must bind 0.0.0.0
+ENV HOST=0.0.0.0
+
 COPY package.json server.js server.test.js ./
 RUN npm test
 
