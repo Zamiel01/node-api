@@ -43,7 +43,7 @@ test('GET /health returns 200 with ok status', async () => {
 test('GET /version returns 200 with version from package.json', async () => {
   const res = await request('GET', '/version');
   assert.equal(res.statusCode, 200);
-  assert.equal(res.body.version, '1.0.0');
+  assert.equal(res.body.version, '1.3.0');
 });
 
 test('GET /unknown returns 404', async () => {
