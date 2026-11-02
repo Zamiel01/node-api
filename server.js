@@ -26,8 +26,10 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === 'GET' && url.pathname === '/version') {
-    const { version } = require('./package.json');
-    sendJson(res, 200, { version });
+//return version information hardcoded 1.3.0
+    sendJson(res, 200, {
+      version: '1.3.0',
+    });
     return;
   }
 
