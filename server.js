@@ -25,6 +25,12 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  if (req.method === 'GET' && url.pathname === '/version') {
+    const { version } = require('./package.json');
+    sendJson(res, 200, { version });
+    return;
+  }
+
   sendJson(res, 404, { error: 'Not Found' });
 });
 
